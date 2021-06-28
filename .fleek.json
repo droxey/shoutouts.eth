@@ -1,0 +1,14 @@
+{
+  "site": {
+    "id": "a6d38403-3303-400a-8a4a-d8d574e7c338",
+    "team": "earnlearn-team",
+    "platform": "ipfs",
+    "source": "ipfs",
+    "name": "shoutouts"
+  },
+  "build": {
+    "baseDir": "",
+    "publicDir": "",
+    "rootDir": ""
+  }
+}
