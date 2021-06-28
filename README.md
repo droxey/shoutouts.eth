@@ -327,7 +327,7 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
    uploading...
    Site cid is QmTRnEN27nJLpXFiXEZ8NTr4wE4q5ssg9F9hqztnHrjYso
    New deployment has been triggered.
-   View deployment here: https://app.fleek.co/#/sites/shoutouts/deploys/2021-06-28T04:34:52.361Z?accountId=username-team
+   View deployment here: https://app.fleek.co/#/sites/late-dust-7939/deploys/2021-06-28T04:34:52.361Z?accountId=username-team
    ```
 
 ## References
