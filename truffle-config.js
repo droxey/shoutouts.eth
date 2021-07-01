@@ -49,6 +49,13 @@ module.exports = {
     }
   },
 
+  build: new DefaultBuilder({
+    "index.html": "index.html",
+    "app.js": [
+      "js/index.js"
+    ]
+  }),
+
   // Set default mocha options here, use special reporters etc.
   mocha: {
     timeout: 100000,

@@ -23,6 +23,7 @@
     "@openzeppelin/contracts": "^4.1.0",
     "@truffle/hdwallet-provider": "^1.2.3",
     "dotenv": "^10.0.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "gulp-sass": "^5.0.0"
   }
 }

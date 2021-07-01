@@ -6,24 +6,34 @@
 ## Table of Contents
 
 1. [Table of Contents](#table-of-contents)
-1. [Set Up Development Environment](#set-up-development-environment)
-1. [Create Base Project](#create-base-project)
-1. [Create Infura Account](#create-infura-account)
-1. [Create Pinata Account](#create-pinata-account)
-1. [Copy Mnemonic from MetaMask](#copy-mnemonic-from-metamask)
-1. [Install Project Dependencies](#install-project-dependencies)
-1. [Create Contract and Migration](#create-contract-and-migration)
-1. [Create NFT Image](#create-nft-image)
-1. [Create Sample Metadata File](#create-sample-metadata-file)
-1. [Compile Contract](#compile-contract)
-1. [Migrate to Rinkeby Network](#migrate-to-rinkeby-network)
-1. [Test Deployed Contract in Console](#test-deployed-contract-in-console)
-1. [Verify the Shoutout on the Blockchain](#verify-the-shoutout-on-the-blockchain)
-1. [Add New Token to MetaMask](#add-new-token-to-metamask)
-1. [Deploy Entire DApp to Fleek](#deploy-entire-dapp-to-fleek)
+1. [Backend](#backend)
+   1. [Set Up Development Environment](#set-up-development-environment)
+   1. [Create Base Project](#create-base-project)
+   1. [Create Infura Account](#create-infura-account)
+   1. [Create Pinata Account](#create-pinata-account)
+   1. [Copy Mnemonic from MetaMask](#copy-mnemonic-from-metamask)
+   1. [Install Project Dependencies](#install-project-dependencies)
+   1. [Create Contract and Migration](#create-contract-and-migration)
+   1. [Create NFT Image](#create-nft-image)
+   1. [Create Sample Metadata File](#create-sample-metadata-file)
+   1. [Compile Contract](#compile-contract)
+   1. [Migrate to Rinkeby Network](#migrate-to-rinkeby-network)
+   1. [Test Deployed Contract in Console](#test-deployed-contract-in-console)
+   1. [Verify the Shoutout on the Blockchain](#verify-the-shoutout-on-the-blockchain)
+   1. [Add New Token to MetaMask](#add-new-token-to-metamask)
+   1. [Deploy Entire DApp to Fleek](#deploy-entire-dapp-to-fleek)
+1. [Frontend](#frontend)
+   1. [Setup Front End Codebase](#setup-front-end-codebase)
+   1. [Add Default Builder to Config](#add-default-builder-to-config)
+   1. [Implement Front End Javascript](#implement-front-end-javascript)
+   1. [Truffle Build: Compile `app` Directory](#truffle-build%3A-compile-%60app%60-directory)
+   1. [Truffle Serve: Serve `app` Directory](#truffle-serve%3A-serve-%60app%60-directory)
+   1. [Open in MetaMask-Enabled Browser](#open-in-metamask-enabled-browser)
 1. [References](#references)
 
-## Set Up Development Environment
+## Backend
+
+### Set Up Development Environment
 
 1. Install Truffle: `npm install -g truffle`
 1. Install Ganache: `npm install -g ganache-cli`
@@ -32,7 +42,7 @@
 1. Install the [Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) extension in VSCode.
 
 
-## Create Base Project
+### Create Base Project
 
 ```bash
 mkdir shoutouts.eth
@@ -42,13 +52,13 @@ npm init
 cp .env.sample .env
 ```
 
-## Create Infura Account
+### Create Infura Account
 
 1. <infura.io>: Sign up and create a new project. Give it the same name as your codebase.
 1. Under the Keys heading, copy `Project Secret` to your clipboard.
 1. Open your `.env` file and paste the key to the right of `INFURA_KEY=`.
 
-## Create Pinata Account
+### Create Pinata Account
 
 1. Visit <pinata.cloud> and create a new account.
 1. Click API Keys on left sidebar.
@@ -59,7 +69,7 @@ cp .env.sample .env
 1. Copy `JWT` to the clipboard.
 
 
-## Copy Mnemonic from MetaMask
+### Copy Mnemonic from MetaMask
 
 1. Open Chrome and log in to MetaMask.
 1. Click Account Icon on Top Right > Choose `Settings` > `Security & Privacy`
@@ -67,20 +77,20 @@ cp .env.sample .env
 1. Copy the phrase to your clipboard.
 1. Open your `.env` file and paste the mnemonic to the right of `MNEMONIC=`.
 
-## Install Project Dependencies
+### Install Project Dependencies
 
 ```bash
 npm install @openzeppelin/contracts dotenv @truffle/hdwallet-provider@1.2.3
 ```
 
-## Create Contract and Migration
+### Create Contract and Migration
 
 ```bash
 touch contracts/ShoutoutContract.sol
 touch migrations/2_deploy_contracts.js
 ```
 
-## Create NFT Image
+### Create NFT Image
 
 1. Visit https://badge.design to generate an image for your new token.
 1. Save a transparent PNG of the image in the root of your project.
@@ -143,7 +153,7 @@ touch migrations/2_deploy_contracts.js
    $ ipfs pin remote add --service=pinata --name=shoutout.png QmRGhvqTPvx8kgMSLFdPaCysKvhtP5GV5MsKDmTx3v2QxT
    ```
 
-## Create Sample Metadata File
+### Create Sample Metadata File
 
 This sample metadata can be used prior to developing a metadata API, and exists to prove that we can mint our token successfully.
 
@@ -164,7 +174,7 @@ This sample metadata can be used prior to developing a metadata API, and exists 
    Status: pinned
    ```
 
-## Compile Contract
+### Compile Contract
 
 ```bash
 $ truffle compile
@@ -191,7 +201,7 @@ Compiling your contracts...
    - solc: 0.8.0+commit.c7dfd78e.Linux.g++
 ```
 
-## Migrate to Rinkeby Network
+### Migrate to Rinkeby Network
 
 ```bash
 $ truffle migrate --network rinkeby
@@ -271,7 +281,7 @@ Summary
 > Final cost:          0.002716586 ETH
 ```
 
-## Test Deployed Contract in Console
+### Test Deployed Contract in Console
 
 ```bash
 $ truffle console --network rinkeby
@@ -279,13 +289,13 @@ truffle(rinkeby)> let instance = await ShoutoutContract.deployed()
 truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F54d5A90ec27cEe7F42C", "https://gateway.pinata.cloud/ipfs/QmVGmwHFxzcrdygWMKPdqp3Q37BBNsGc4M1f6KVRitJ49j")
 ```
 
-## Verify the Shoutout on the Blockchain
+### Verify the Shoutout on the Blockchain
 
 1. Open https://rinkeby.etherscan.io
 1. Paste the deployed contract address in the search bar or visit <https://rinkeby.etherscan.io/address/DEPLOYED_CONTRACT_ADDRESS>  (https://rinkeby.etherscan.io/address/0x001Fd4dd63455F327BE312C6bf7c77c5A63BEe9e)
 1. Should see two transactions --- one to create the contract, and one to award an item.
 
-## Add New Token to MetaMask
+### Add New Token to MetaMask
 
 1. Open MetaMask and click Add Token
 1. Paste the deployed contract address in the `Token Contract Address` field.
@@ -293,7 +303,7 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
 1. Click `Next`
 1. Click `Add Token`
 
-## Deploy Entire DApp to Fleek
+### Deploy Entire DApp to Fleek
 
 1. Visit <fleek.co> in your browser and create an account.
 1. Run `fleek login` to sign in from your terminal before initializing or deploying.
@@ -330,6 +340,60 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
    View deployment here: https://app.fleek.co/#/sites/late-dust-7939/deploys/2021-06-28T04:34:52.361Z?accountId=username-team
    ```
 
+## Frontend
+
+### Setup Front End Codebase
+
+1. Add `app` folder to project. Name is important!
+1. Add  `app/js/index.js` to the project
+1. Add `app/index.html` to the project
+
+### Add Default Builder to Config
+
+1. Add default builder to project
+
+```bash
+npm install truffle-default-builder
+```
+
+1. Import `truffle-default-builder` at the top of `truffle-config.js`:
+
+   ```js
+   var DefaultBuilder = require("truffle-default-builder");
+   ```
+
+1. Configure the builder using the `build` directive in `truffle-config.js`. Paste the following code below the definition for `networks`:
+
+   ```js
+      build: new DefaultBuilder({
+         "index.html": "index.html",
+         "app.js": [
+            "js/index.js"
+         ]
+   })
+   ```
+
+### Implement Front End Javascript
+
+Located in `app/js/index.js`.
+
+### Truffle Build: Compile `app` Directory
+
+```bash
+truffle build
+```
+
+### Truffle Serve: Serve `app` Directory
+
+```bash
+truffle serve
+```
+
+### Open in MetaMask-Enabled Browser
+
+Visit <http://localhost:8080> in your browser to test your new full stack DApp!
+
 ## References
 
-- [Using with Truffle - OpenZeppelin Docs](https://docs.openzeppelin.com/upgrades-plugins/1.x/truffle-upgrades)
+- [Building Blockchain Projects by Narayan Prusty](https://learning.oreilly.com/library/view/building-blockchain-projects)
+- [Get Started With Ethereum by Davi Bauer](https://leanpub.com/getstartedwithethereum)

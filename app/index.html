@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>shoutouts.eth</title>
+  </head>
+  <body>
+    <h1>shoutouts.eth</h1>
+    <div class="container">
+      <form id="shoutout-form">
+        <div class="mb-3">
+          <div class="input-group">
+            <span class="input-group-text">From Address</span>
+            <input type="text" class="form-control" id="sender" name="sender">
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <span class="input-group-text">To Address</span>
+            <input type="text" class="form-control" id="receipient" name="receipient">
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <span class="input-group-text">Message</span>
+            <textarea class="form-control" name="message" id="message" aria-label="With textarea"></textarea>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <button type="submit">Send Shoutout</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Result of Truffle Build  -->
+    <script src="/app.js"></script>
+  </body>
+</html>
