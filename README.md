@@ -1,12 +1,14 @@
 # shoutouts.eth
 
-![logo](shoutout-custom.png)
 
-<!--omit in toc -->
+<p align="center">
+   <img src="shoutout.png" alt="shoutout">
+</p>
+
+<!-- omit in toc -->
 ## Table of Contents
 
-1. [Table of Contents](#table-of-contents)
-1. [Backend](#backend)
+1. [**Backend**](#%2a%2abackend%2a%2a)
    1. [Set Up Development Environment](#set-up-development-environment)
    1. [Create Base Project](#create-base-project)
    1. [Create Infura Account](#create-infura-account)
@@ -22,16 +24,16 @@
    1. [Verify the Shoutout on the Blockchain](#verify-the-shoutout-on-the-blockchain)
    1. [Add New Token to MetaMask](#add-new-token-to-metamask)
    1. [Deploy Entire DApp to Fleek](#deploy-entire-dapp-to-fleek)
-1. [Frontend](#frontend)
+1. [**Frontend**](#%2a%2afrontend%2a%2a)
    1. [Setup Front End Codebase](#setup-front-end-codebase)
    1. [Add Default Builder to Config](#add-default-builder-to-config)
    1. [Implement Front End Javascript](#implement-front-end-javascript)
    1. [Truffle Build: Compile `app` Directory](#truffle-build%3A-compile-%60app%60-directory)
    1. [Truffle Serve: Serve `app` Directory](#truffle-serve%3A-serve-%60app%60-directory)
    1. [Open in MetaMask-Enabled Browser](#open-in-metamask-enabled-browser)
-1. [References](#references)
+1. [**Resources & Credits**](#%2a%2aresources-%26-credits%2a%2a)
 
-## Backend
+## **Backend**
 
 ### Set Up Development Environment
 
@@ -340,7 +342,7 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
    View deployment here: https://app.fleek.co/#/sites/late-dust-7939/deploys/2021-06-28T04:34:52.361Z?accountId=username-team
    ```
 
-## Frontend
+## **Frontend**
 
 ### Setup Front End Codebase
 
@@ -373,6 +375,10 @@ npm install truffle-default-builder
    })
    ```
 
+
+
+
+
 ### Implement Front End Javascript
 
 Located in `app/js/index.js`.
@@ -393,7 +399,7 @@ truffle serve
 
 Visit <http://localhost:8080> in your browser to test your new full stack DApp!
 
-## References
+## **Resources & Credits**
 
-- [Building Blockchain Projects by Narayan Prusty](https://learning.oreilly.com/library/view/building-blockchain-projects)
-- [Get Started With Ethereum by Davi Bauer](https://leanpub.com/getstartedwithethereum)
+- [**Building Blockchain Projects** by Narayan Prusty](https://learning.oreilly.com/library/view/building-blockchain-projects)
+- [**Get Started With Ethereum** by Davi Bauer](https://leanpub.com/getstartedwithethereum)

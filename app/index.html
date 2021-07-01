@@ -8,19 +8,19 @@
     <title>shoutouts.eth</title>
   </head>
   <body>
-    <h1>shoutouts.eth</h1>
+    <h1>shoutouts.eth <span class="pull-right" id="ipfs-status"></span></h1>
     <div class="container">
       <form id="shoutout-form">
         <div class="mb-3">
           <div class="input-group">
             <span class="input-group-text">From Address</span>
-            <input type="text" class="form-control" id="sender" name="sender">
+            <input type="text" class="form-control" id="from" name="to" placeholder="Type in your name...">
           </div>
         </div>
         <div class="mb-3">
           <div class="input-group">
-            <span class="input-group-text">To Address</span>
-            <input type="text" class="form-control" id="receipient" name="receipient">
+            <span class="input-group-text">Send to Address</span>
+            <input type="text" class="form-control" id="to" name="to">
           </div>
         </div>
         <div class="mb-3">
@@ -44,6 +44,8 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- IPFS -->
+    <script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
     <!-- Result of Truffle Build  -->
     <script src="/app.js"></script>
   </body>
