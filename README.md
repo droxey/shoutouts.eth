@@ -37,6 +37,15 @@
 
 ### Set Up Development Environment
 
+1. Install NVM and use Node v10:
+
+   ```bash
+   mkdir ~/.nvm
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+   nvm install 10
+   nvm use 10
+   ```
+
 1. Install Truffle: `npm install -g truffle`
 1. Install Ganache: `npm install -g ganache-cli`
 1. Install Fleek: `npm install -g @fleekhq/fleek-cli`

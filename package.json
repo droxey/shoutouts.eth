@@ -2,6 +2,9 @@
   "name": "shoutouts.eth",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "10"
+  },
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -18,14 +21,12 @@
   "bugs": {
     "url": "https://github.com/droxey/shoutouts.eth/issues"
   },
-  "homepage": "https://github.com/droxey/shoutouts.eth#readme",
+  "homepage": "https://droxey.github.io/shoutouts.eth/",
   "dependencies": {
     "@openzeppelin/contracts": "^4.1.0",
     "@truffle/hdwallet-provider": "^1.2.3",
-    "truffle-default-builder": "^2.0.0",
     "dotenv": "^10.0.0",
-    "fs": "^0.0.1-security",
-    "gulp-sass": "^5.0.0",
-    "ipfs-core": "^0.8.0"
+    "ipfs-core": "^0.8.0",
+    "truffle-default-builder": "^2.0.0"
   }
 }
