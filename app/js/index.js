@@ -57,7 +57,7 @@ const App = {
         const upload = {
             apiKey: 'KlBFeA+IOCSibbOtRjqN9Q==',
             apiSecret: 'k3X0fEIDpMiOw6y2x6OayqJXOvxnr4eT29Gwfb6IG0M=',
-            key: `metadata/${metadata.timestamp}}.json`,
+            key: `metadata/${metadata.timestamp}.json`,
             data: JSON.stringify(metadata),
         };
 
@@ -75,7 +75,7 @@ const App = {
         const { awardItem } = this.shoutoutContract.methods;
         await awardItem(to, metadataURL).send({ from: this.account });
 
-        this.setStatus("Shoutout sent!");
+        this.setStatus(`Shoutout sent! View the metadata <a href="${metadataURL}" target="_blank">here</a>.`);
         this.refreshBalance();
     },
 
