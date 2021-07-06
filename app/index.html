@@ -8,24 +8,36 @@
     <title>shoutouts.eth</title>
   </head>
   <body>
-    <h1>shoutouts.eth <span class="pull-right" id="ipfs-status"></span></h1>
-    <div class="container">
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="img/shout.png" alt="" height="24" class="d-inline-block align-text-top">
+            shoutouts.eth
+          </a>
+          <span id="total-shouts" class="hidden">You've earned <strong id="balance">0</strong> SHOUTs!</span>
+          <span id="ipfs-status"></span>
+        </div>
+      </nav>
+      <br>
       <form id="shoutout-form">
         <div class="mb-3">
           <div class="input-group">
-            <span class="input-group-text">From Address</span>
+            <span class="input-group-text"><strong>your name</strong></span>
             <input type="text" class="form-control" id="from" name="to" placeholder="Type in your name...">
+            <p id="my-account" class="help-text"></p>
           </div>
         </div>
         <div class="mb-3">
           <div class="input-group">
-            <span class="input-group-text">Send to Address</span>
-            <input type="text" class="form-control" id="to" name="to">
+            <span class="input-group-text"><strong>send to</strong></span>
+            <input type="text" class="form-control" id="to" name="to"
+              placeholder="e.g. 0xe4233b38fEa3B8c27ea9F54d5A90ec27cEe7F42C">
           </div>
         </div>
         <div class="mb-3">
           <div class="input-group">
-            <span class="input-group-text">Message</span>
+            <span class="input-group-text"><strong>message</strong></span>
             <textarea class="form-control" name="message" id="message" aria-label="With textarea"></textarea>
           </div>
         </div>
@@ -35,6 +47,8 @@
           </div>
         </div>
       </form>
+      <p id="status"></p>
+      <p><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</p>
     </div>
 
     <!-- Bootstrap 5 -->
@@ -46,7 +60,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- IPFS -->
     <script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
-    <!-- Result of Truffle Build  -->
-    <script src="/app.js"></script>
+    <!-- Compiled using Webpack -->
+    <script src="index.js"></script>
   </body>
 </html>
