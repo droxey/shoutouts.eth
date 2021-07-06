@@ -1,16 +1,15 @@
 {
   "name": "shoutouts.eth",
   "version": "1.0.0",
-  "description": "",
-  "engines": {
-    "node": "10"
-  },
+  "description": "Example full-stack distributed application.",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ./",
+    "build": "webpack",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -23,10 +22,18 @@
   },
   "homepage": "https://droxey.github.io/shoutouts.eth/",
   "dependencies": {
+    "@fleekhq/fleek-storage-js": "^1.0.17",
     "@openzeppelin/contracts": "^4.1.0",
     "@truffle/hdwallet-provider": "^1.2.3",
     "dotenv": "^10.0.0",
-    "ipfs-core": "^0.8.0",
-    "truffle-default-builder": "^2.0.0"
+    "eth-gas-reporter": "^0.2.22",
+    "web3": "^1.2.4",
+    "zeppelin-solidity": "^1.12.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.0.5",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   }
 }

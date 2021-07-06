@@ -23,15 +23,18 @@
    1. [Test Deployed Contract in Console](#test-deployed-contract-in-console)
    1. [Verify the Shoutout on the Blockchain](#verify-the-shoutout-on-the-blockchain)
    1. [Add New Token to MetaMask](#add-new-token-to-metamask)
-   1. [Deploy Entire DApp to Fleek](#deploy-entire-dapp-to-fleek)
 1. [**Frontend**](#%2a%2afrontend%2a%2a)
    1. [Setup Front End Codebase](#setup-front-end-codebase)
-   1. [Add Default Builder to Config](#add-default-builder-to-config)
    1. [Implement Front End Javascript](#implement-front-end-javascript)
-   1. [Truffle Build: Compile `app` Directory](#truffle-build%3A-compile-%60app%60-directory)
-   1. [Truffle Serve: Serve `app` Directory](#truffle-serve%3A-serve-%60app%60-directory)
-   1. [Open in MetaMask-Enabled Browser](#open-in-metamask-enabled-browser)
+   1. [Truffle Watch: Observe Contract + Client Changes](#truffle-watch%3A-observe-contract-%2B-client-changes)
+   1. [Build + Run Frontend](#build-%2B-run-frontend)
+   1. [Build for Production](#build-for-production)
+   1. [Deploy Entire DApp to Fleek](#deploy-entire-dapp-to-fleek)
+   1. [Open in MetaMask Enabled Browser](#open-in-metamask-enabled-browser)
 1. [**Resources & Credits**](#%2a%2aresources-%26-credits%2a%2a)
+   1. [Books](#books)
+   1. [Guides](#guides)
+   1. [Repositories](#repositories)
 
 ## **Backend**
 
@@ -314,6 +317,50 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
 1. Click `Next`
 1. Click `Add Token`
 
+## **Frontend**
+
+### Setup Front End Codebase
+
+1. Add `app` folder to project. Name is important!
+1. Add  `app/js/index.js` to the project.
+1. Add `app/index.html` to the project.
+
+### Implement Front End Javascript
+
+Located in `app/js/index.js`.
+
+### Truffle Watch: Observe Contract + Client Changes
+
+```bash
+truffle watch
+```
+
+### Build + Run Frontend
+
+In the app directory, we build and run our frontend.
+
+Smart contract changes must be manually recompiled and migrated.
+
+Open another terminal and run the following commands to build the frontend:
+
+```bash
+cd dev
+npm run dev
+```
+
+### Build for Production
+
+Open a fresh terminal and run the following commands to build the frontend:
+
+```bash
+cd dev
+npm run build
+```
+
+The production build will be in the `dist` folder after running `npm run build`  in the `app` folder.
+
+This build can be deployed anywhere static sites can be hosted!
+
 ### Deploy Entire DApp to Fleek
 
 1. Visit <fleek.co> in your browser and create an account.
@@ -351,64 +398,24 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
    View deployment here: https://app.fleek.co/#/sites/late-dust-7939/deploys/2021-06-28T04:34:52.361Z?accountId=username-team
    ```
 
-## **Frontend**
 
-### Setup Front End Codebase
-
-1. Add `app` folder to project. Name is important!
-1. Add  `app/js/index.js` to the project
-1. Add `app/index.html` to the project
-
-### Add Default Builder to Config
-
-1. Add default builder to project
-
-```bash
-npm install truffle-default-builder
-```
-
-1. Import `truffle-default-builder` at the top of `truffle-config.js`:
-
-   ```js
-   var DefaultBuilder = require("truffle-default-builder");
-   ```
-
-1. Configure the builder using the `build` directive in `truffle-config.js`. Paste the following code below the definition for `networks`:
-
-   ```js
-      build: new DefaultBuilder({
-         "index.html": "index.html",
-         "app.js": [
-            "js/index.js"
-         ]
-   })
-   ```
-
-
-
-
-
-### Implement Front End Javascript
-
-Located in `app/js/index.js`.
-
-### Truffle Build: Compile `app` Directory
-
-```bash
-truffle build
-```
-
-### Truffle Serve: Serve `app` Directory
-
-```bash
-truffle serve
-```
-
-### Open in MetaMask-Enabled Browser
+### Open in MetaMask Enabled Browser
 
 Visit <http://localhost:8080> in your browser to test your new full stack DApp!
 
 ## **Resources & Credits**
 
+### Books
+
 - [**Building Blockchain Projects** by Narayan Prusty](https://learning.oreilly.com/library/view/building-blockchain-projects)
 - [**Get Started With Ethereum** by Davi Bauer](https://leanpub.com/getstartedwithethereum)
+
+### Guides
+
+- [webpack | Boxes | Truffle Suite](https://www.trufflesuite.com/boxes/webpack)
+- [Easily pin to IPFS with Fleek Storage Js! - A short guide - Fleek Blog](https://blog.fleek.co/posts/guide-to-fleek-storage-js)
+
+### Repositories
+
+- [truffle-box/webpack-box: Example webpack-based app for Truffle (boilerplate)](https://github.com/truffle-box/webpack-box)
+

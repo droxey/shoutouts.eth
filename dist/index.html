@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>shoutouts.eth</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="shout.png" alt="" height="24" class="d-inline-block align-text-top">
+            shoutouts.eth
+          </a>
+          <span id="total-shouts" class="hidden">You've earned <strong id="balance">0</strong> SHOUTs!</span>
+          <span id="ipfs-status"></span>
+        </div>
+      </nav>
+      <br>
+      <form id="shoutout-form">
+        <div class="mb-3">
+          <div class="input-group">
+            <span class="input-group-text"><strong>your name</strong></span>
+            <input type="text" class="form-control" id="from" name="to" placeholder="Type in your name...">
+            <p id="my-account" class="help-text"></p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <span class="input-group-text"><strong>send to</strong></span>
+            <input type="text" class="form-control" id="to" name="to"
+              placeholder="e.g. 0xe4233b38fEa3B8c27ea9F54d5A90ec27cEe7F42C">
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <span class="input-group-text"><strong>message</strong></span>
+            <textarea class="form-control" name="message" id="message" aria-label="With textarea"></textarea>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <button type="submit">Send Shoutout</button>
+          </div>
+        </div>
+      </form>
+      <p id="status"></p>
+      <p><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</p>
+    </div>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- IPFS -->
+    <script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+    <!-- Compiled using Webpack -->
+    <script src="index.js"></script>
+  </body>
+</html>

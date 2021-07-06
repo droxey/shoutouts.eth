@@ -17,10 +17,14 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-require('dotenv').config()
+require('dotenv').config();
+require('babel-register') // should already exist in Truffle webpack box
+require('babel-polyfill') // added to appease zeppelin-solidity
+require('babel-node-modules')([ // added so that we can include zeppelin-solidity test JS
+  'zeppelin-solidity' // module that has ES6 style files I wish to include
+]);
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const DefaultBuilder = require("truffle-default-builder");
 const infuraKey = process.env.INFURA_KEY;
 const mnemonic = process.env.MNEMONIC;
 
@@ -50,16 +54,14 @@ module.exports = {
     }
   },
 
-  build: new DefaultBuilder({
-    "index.html": "index.html",
-    "app.js": [
-      "js/index.js"
-    ]
-  }),
-
   // Set default mocha options here, use special reporters etc.
   mocha: {
     timeout: 100000,
+    reporter: 'eth-gas-reporter',
+    reporterOptions: {
+      currency: 'USD',
+      gasPrice: 1
+    },
     color: true
   },
 
@@ -77,6 +79,11 @@ module.exports = {
       }
     }
   },
+
+  develop: {
+    port: 8545
+  },
+
 
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
   //

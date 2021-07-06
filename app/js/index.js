@@ -51,14 +51,14 @@ const App = {
             "to": to,
             "message": message,
             "image": "https://ipfs.io/ipfs/QmRGhvqTPvx8kgMSLFdPaCysKvhtP5GV5MsKDmTx3v2QxT",
-            "timestamp": new Date().toUTCString()
+            "timestamp": new Date().toISOString()
         };
 
         const upload = {
             apiKey: 'KlBFeA+IOCSibbOtRjqN9Q==',
             apiSecret: 'k3X0fEIDpMiOw6y2x6OayqJXOvxnr4eT29Gwfb6IG0M=',
             key: `metadata/${metadata.timestamp}}.json`,
-            data: metadata.toString(),
+            data: JSON.stringify(metadata),
         };
 
         this.setStatus("Sending shoutout... please wait!");
