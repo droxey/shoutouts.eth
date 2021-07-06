@@ -27,7 +27,6 @@
    1. [Prerequisites](#prerequisites)
    1. [Setup Front End Codebase](#setup-front-end-codebase)
    1. [Implement Front End Javascript](#implement-front-end-javascript)
-   1. [Truffle Watch: Observe Contract + Client Changes](#truffle-watch%3A-observe-contract-%2B-client-changes)
    1. [Build + Run Frontend](#build-%2B-run-frontend)
    1. [Build for Production](#build-for-production)
    1. [Open in MetaMask Enabled Browser](#open-in-metamask-enabled-browser)
@@ -330,12 +329,6 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
 ### Implement Front End Javascript
 
 Located in `app/js/index.js`.
-
-### Truffle Watch: Observe Contract + Client Changes
-
-```bash
-truffle watch
-```
 
 ### Build + Run Frontend
 
