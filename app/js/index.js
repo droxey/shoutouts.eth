@@ -16,7 +16,7 @@ const App = {
         const { web3 } = this;
 
         try {
-            // Get contract instance
+            // Get contract instance.
             const networkId = await web3.eth.net.getId();
             const deployedNetwork = shoutoutArtifact.networks[networkId];
             this.shoutoutContract = new web3.eth.Contract(
@@ -24,10 +24,9 @@ const App = {
                 deployedNetwork.address,
             );
 
-            // Get accounts
+            // Get accounts and refresh the balance.
             const accounts = await web3.eth.getAccounts();
             this.account = accounts[0];
-
             this.refreshBalance();
         } catch (error) {
             console.error("Could not connect to contract or chain: ", error);
@@ -35,9 +34,14 @@ const App = {
     },
 
     refreshBalance: async function () {
+        // Fetch the balanceOf method from our contract.
+
         const { balanceOf } = this.shoutoutContract.methods;
+
+        // Fetch shoutout amount by calling balanceOf in our contract.
         const balance = await balanceOf(this.account).call();
 
+        // Update the page using jQuery.
         $('#balance').html(balance);
         $('#total-shouts').show();
         $('my-account').html(this.account);
@@ -54,13 +58,15 @@ const App = {
             "timestamp": new Date().toISOString()
         };
 
-        const upload = {
+        // Configure the uploader.
+        const uploadMetadata = {
             apiKey: 'KlBFeA+IOCSibbOtRjqN9Q==',
             apiSecret: 'k3X0fEIDpMiOw6y2x6OayqJXOvxnr4eT29Gwfb6IG0M=',
             key: `metadata/${metadata.timestamp}.json`,
             data: JSON.stringify(metadata),
         };
 
+        // Tell the user we're sending the shoutout.
         this.setStatus("Sending shoutout... please wait!");
 
         // Add the metadata to IPFS first, because our contract requires a
@@ -72,10 +78,16 @@ const App = {
     },
 
     awardItem: async function (to, metadataURL) {
+        // Fetch the awardItem method from our contract.
         const { awardItem } = this.shoutoutContract.methods;
+
+        // Award the shoutout.
         await awardItem(to, metadataURL).send({ from: this.account });
 
+        // Set the status and show the metadata link on IPFS.
         this.setStatus(`Shoutout sent! View the metadata <a href="${metadataURL}" target="_blank">here</a>.`);
+
+        // Finally, refresh the balance (in the case where we send a shoutout to ourselves!)
         this.refreshBalance();
     },
 
