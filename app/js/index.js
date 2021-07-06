@@ -1,5 +1,6 @@
 import Web3 from "web3";
 import shoutoutArtifact from "../../build/contracts/ShoutoutContract.json";
+import fleek from '@fleekhq/fleek-storage-js';
 
 
 // Create a Javascript class to keep track of all the things
@@ -53,23 +54,29 @@ const App = {
             "timestamp": new Date().toUTCString()
         };
 
+        const upload = {
+            apiKey: 'KlBFeA+IOCSibbOtRjqN9Q==',
+            apiSecret: 'k3X0fEIDpMiOw6y2x6OayqJXOvxnr4eT29Gwfb6IG0M=',
+            key: `metadata/${metadata.timestamp}}.json`,
+            data: metadata.toString(),
+        };
+
+        this.setStatus("Sending shoutout... please wait!");
+
         // Add the metadata to IPFS first, because our contract requires a
         // valid URL for the metadata address.
-        window.node.add(metadata).then(function (cid) {
-            console.log('[IPFS]', 'Metadata stored:', cid);
+        const result = await fleek.upload(upload);
 
-            // Once the file is added, then we can send a shoutout!
-            this.awardItem(to, `https://ipfs.io/ipfs/${cid}`);
-        });
+        // Once the file is added, then we can send a shoutout!
+        this.awardItem(to, result.publicUrl);
     },
 
     awardItem: async function (to, metadataURL) {
-        this.setStatus("Sending shoutout... please wait!");
-
         const { awardItem } = this.shoutoutContract.methods;
         await awardItem(to, metadataURL).send({ from: this.account });
 
         this.setStatus("Shoutout sent!");
+        this.refreshBalance();
     },
 
     setStatus: function (message) {
@@ -80,6 +87,7 @@ const App = {
 window.App = App;
 
 $(document).ready(function () {
+    // Detect Web3 provider.
     if (window.ethereum) {
         // use MetaMask's provider
         App.web3 = new Web3(window.ethereum);
@@ -91,15 +99,8 @@ $(document).ready(function () {
             new Web3.providers.HttpProvider("http://127.0.0.1:8545"),
         );
     }
-
-    // Create an IPFS node and connect to the network.
-    Ipfs.create({ repo: 'ipfs-' + Math.random() }).then(function (node) {
-        window.node = node;
-        console.log(`Node status: ${window.node.isOnline() ? 'online' : 'offline'}`);
-
-        // Initialize Web3 connection.
-        window.App.start();
-    });
+    // Initialize Web3 connection.
+    window.App.start();
 
     // Capture the form submission event when it occurs.
     $("#shoutout-form").submit(function (e) {
@@ -110,6 +111,7 @@ $(document).ready(function () {
         const name = $("#from").val();
         const to = $("#to").val();
         const message = $("#message").val();
+
         window.App.storeMetadata(name, to, message);
     });
 });
