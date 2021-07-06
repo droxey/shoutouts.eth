@@ -24,13 +24,15 @@
    1. [Verify the Shoutout on the Blockchain](#verify-the-shoutout-on-the-blockchain)
    1. [Add New Token to MetaMask](#add-new-token-to-metamask)
 1. [**Frontend**](#%2a%2afrontend%2a%2a)
+   1. [Prerequisites](#prerequisites)
    1. [Setup Front End Codebase](#setup-front-end-codebase)
    1. [Implement Front End Javascript](#implement-front-end-javascript)
    1. [Truffle Watch: Observe Contract + Client Changes](#truffle-watch%3A-observe-contract-%2B-client-changes)
    1. [Build + Run Frontend](#build-%2B-run-frontend)
    1. [Build for Production](#build-for-production)
-   1. [Deploy Entire DApp to Fleek](#deploy-entire-dapp-to-fleek)
    1. [Open in MetaMask Enabled Browser](#open-in-metamask-enabled-browser)
+1. [Deploy](#deploy)
+   1. [Using Fleek + IPFS](#using-fleek-%2B-ipfs)
 1. [**Resources & Credits**](#%2a%2aresources-%26-credits%2a%2a)
    1. [Books](#books)
    1. [Guides](#guides)
@@ -39,15 +41,6 @@
 ## **Backend**
 
 ### Set Up Development Environment
-
-1. Install NVM and use Node v10:
-
-   ```bash
-   mkdir ~/.nvm
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-   nvm install 10
-   nvm use 10
-   ```
 
 1. Install Truffle: `npm install -g truffle`
 1. Install Ganache: `npm install -g ganache-cli`
@@ -319,6 +312,15 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
 
 ## **Frontend**
 
+### Prerequisites
+
+1. Sign up for an account on fleek.co (one per team)
+2. Add team members by going to the Members link on the sidebar.
+3. Go to the Storage tab on the sidebar and click Create Folder. 
+4. Name the folder `metadata`.
+5. Generate a Storage API Key by clicking your name at the bottom of the page, then choosing Settings. Scroll to the bottom to generate a new API key. 
+6. Use these keys in your JS to upload files on Fleek!
+
 ### Setup Front End Codebase
 
 1. Add `app` folder to project. Name is important!
@@ -361,7 +363,14 @@ The production build will be in the `dist` folder after running `npm run build` 
 
 This build can be deployed anywhere static sites can be hosted!
 
-### Deploy Entire DApp to Fleek
+### Open in MetaMask Enabled Browser
+
+Visit <http://localhost:8080> in your browser to test your new full stack DApp!
+
+
+## Deploy
+
+### Using Fleek + IPFS
 
 1. Visit <fleek.co> in your browser and create an account.
 1. Run `fleek login` to sign in from your terminal before initializing or deploying.
@@ -397,11 +406,6 @@ This build can be deployed anywhere static sites can be hosted!
    New deployment has been triggered.
    View deployment here: https://app.fleek.co/#/sites/late-dust-7939/deploys/2021-06-28T04:34:52.361Z?accountId=username-team
    ```
-
-
-### Open in MetaMask Enabled Browser
-
-Visit <http://localhost:8080> in your browser to test your new full stack DApp!
 
 ## **Resources & Credits**
 
