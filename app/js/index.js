@@ -35,7 +35,6 @@ const App = {
 
     refreshBalance: async function () {
         // Fetch the balanceOf method from our contract.
-
         const { balanceOf } = this.shoutoutContract.methods;
 
         // Fetch shoutout amount by calling balanceOf in our contract.
@@ -71,7 +70,7 @@ const App = {
 
         // Add the metadata to IPFS first, because our contract requires a
         // valid URL for the metadata address.
-        const result = await fleek.upload(upload);
+        const result = await fleek.upload(uploadMetadata);
 
         // Once the file is added, then we can send a shoutout!
         this.awardItem(to, result.publicUrl);
@@ -98,6 +97,7 @@ const App = {
 
 window.App = App;
 
+// When all the HTML is loaded, run the code in the callback below.
 $(document).ready(function () {
     // Detect Web3 provider.
     if (window.ethereum) {

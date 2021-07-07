@@ -18,11 +18,6 @@
  *
  */
 require('dotenv').config();
-require('babel-register') // should already exist in Truffle webpack box
-require('babel-polyfill') // added to appease zeppelin-solidity
-require('babel-node-modules')([ // added so that we can include zeppelin-solidity test JS
-  'zeppelin-solidity' // module that has ES6 style files I wish to include
-]);
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const infuraKey = process.env.INFURA_KEY;
