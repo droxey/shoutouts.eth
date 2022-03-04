@@ -332,7 +332,28 @@ Located in `app/js/index.js`.
 
 ### Add Webpack
 
-1. Copy and paste the `script` key found in `package.json`.
+1. Open your `package.json` file and paste the `script` object found below ([example](https://github.com/droxey/shoutouts.eth/blob/master/package.json#L9):
+
+   ```json
+   "scripts": {
+     "lint": "eslint ./",
+     "build": "webpack",
+     "dev": "webpack-dev-server"
+   },
+   ```
+   
+1. At the bottom of `package.json`, paste the following `devDependencies` for webpack ([example](https://github.com/droxey/shoutouts.eth/blob/master/package.json#L33):
+
+   ```json
+     "devDependencies": {
+       "copy-webpack-plugin": "^5.0.5",
+       "webpack": "^4.41.2",
+       "webpack-cli": "^3.3.10",
+       "webpack-dev-server": "^3.9.0"
+   }
+   ```
+   
+1. Run `npm install` to install the new `devDependencies`.
 1. Copy `webpack.config.js` from this repo and customize it based on your needs.
 
 ### Build + Run Frontend
