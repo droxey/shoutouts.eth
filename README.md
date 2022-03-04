@@ -61,7 +61,7 @@ cp .env.sample .env
 ### Create Infura Account
 
 1. <infura.io>: Sign up and create a new project. Give it the same name as your codebase.
-1. Under the Keys heading, copy `Project Secret` to your clipboard.
+1. Under the Keys heading, copy `Project ID` to your clipboard.
 1. Open your `.env` file and paste the key to the right of `INFURA_KEY=`.
 
 ### Create Pinata Account
