@@ -339,7 +339,7 @@ Smart contract changes must be manually recompiled and migrated.
 Open another terminal and run the following commands to build the frontend:
 
 ```bash
-cd dev
+cd app
 npm run dev
 ```
 
@@ -348,7 +348,7 @@ npm run dev
 Open a fresh terminal and run the following commands to build the frontend:
 
 ```bash
-cd dev
+cd app
 npm run build
 ```
 
