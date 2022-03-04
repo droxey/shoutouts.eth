@@ -330,9 +330,14 @@ truffle(rinkeby)> let result = await instance.awardItem("0xe4233b38fEa3B8c27ea9F
 
 Located in `app/js/index.js`.
 
+### Add Webpack
+
+1. Copy and paste the `script` key found in `package.json`.
+1. Copy `webpack.config.js` from this repo and customize it based on your needs.
+
 ### Build + Run Frontend
 
-In the app directory, we build and run our frontend.
+In the `app` directory, we build and run our frontend.
 
 Smart contract changes must be manually recompiled and migrated.
 
