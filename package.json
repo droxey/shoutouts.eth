@@ -23,7 +23,7 @@
   "homepage": "https://droxey.github.io/shoutouts.eth/",
   "dependencies": {
     "@fleekhq/fleek-storage-js": "^1.0.17",
-    "@openzeppelin/contracts": "^4.4.2",
+    "@openzeppelin/contracts": "^4.9.6",
     "@truffle/hdwallet-provider": "^1.2.3",
     "dotenv": "^10.0.0",
     "eth-gas-reporter": "^0.2.22",
